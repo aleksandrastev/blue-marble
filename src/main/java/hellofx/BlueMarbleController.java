@@ -90,7 +90,6 @@ public class BlueMarbleController {
 	void showEnhanced(ActionEvent event) {
 		if (image.getImage() != null) {
 			if (enhanced.isSelected()) {
-
 				BlueMarble blueMarble = new BlueMarble();
 				blueMarble.setDate(getDateFromDatePicker());
 				blueMarble.setEnhanced(true);
@@ -100,7 +99,7 @@ public class BlueMarbleController {
 				updateDate(event);
 			}
 		} else {
-			JOptionPane.showMessageDialog(null, "Please, select date");
+			JOptionPane.showMessageDialog(null, "Please, select a date!");
 			enhanced.setSelected(false);
 		}
 	}
@@ -117,7 +116,7 @@ public class BlueMarbleController {
 				image.setEffect(null);
 			}
 		} else {
-			JOptionPane.showMessageDialog(null, "Please, select date");
+			JOptionPane.showMessageDialog(null, "Please, select a date!");
 			blackAndWhite.setSelected(false);
 		}
 	}
