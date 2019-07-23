@@ -57,24 +57,25 @@ public class BlueMarbleController {
 	void updateDate(ActionEvent event) {
 		BlueMarble blueMarble = new BlueMarble();
 		image.setImage(null);
+		image.setEffect(null);
 		enhanced.setSelected(false);
 		blackAndWhite.setSelected(false);
 		try {
 			blueMarble.setDate(getDateFromDatePicker());
 			if (datePicker.getValue().getYear() > (date.getYear() + 1900))
-				throw new Exception("Invalid date!");
+				throw new Exception("Invalid date exception");
 			else if ((datePicker.getValue().getYear() == (date.getYear() + 1900))) {
 				if (datePicker.getValue().getMonthValue() > date.getMonth() + 1)
-					throw new Exception("Invalid date!");
+					throw new Exception("Invalid date exception");
 				else if (datePicker.getValue().getMonthValue() == date.getMonth() + 1) {
 					if (datePicker.getValue().getDayOfMonth() > date.getDate())
-						throw new Exception("Invalid date!");
+						throw new Exception("Invalid date exception");
 				}
 			}
 			image.setImage(new Image(blueMarble.getImage()));
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-			if (e.getMessage().equals("Invalid date!")) {
+			if (e.getMessage().equals("Invalid date exception")) {
 				JOptionPane.showMessageDialog(null, "Invalid date!");
 			}
 		}
